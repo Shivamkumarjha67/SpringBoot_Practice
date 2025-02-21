@@ -1,9 +1,6 @@
 package RESTApi.Controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AppController {
@@ -20,5 +17,10 @@ public class AppController {
     @GetMapping("/hello/{name}")
     public String getResponse(@PathVariable String name) {
         return name + " from BridgeLabz";
+    }
+
+    @PostMapping("/hello/post")
+    public String sayHelloWithBody(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + "\n" + user.getLastName() + " from BridgeLabz";
     }
 }
