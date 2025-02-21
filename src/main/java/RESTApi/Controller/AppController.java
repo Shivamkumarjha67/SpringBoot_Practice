@@ -23,4 +23,9 @@ public class AppController {
     public String sayHelloWithBody(@RequestBody User user) {
         return "Hello " + user.getFirstName() + "\n" + user.getLastName() + " from BridgeLabz";
     }
+
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 }
